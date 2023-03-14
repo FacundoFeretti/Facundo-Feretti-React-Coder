@@ -11,10 +11,10 @@
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: red;
+    background-color: rgb(255, 249, 236);
     font-size: 0.8rem;
     font-style: italic;
-    color: white;
+    color: black;
     font-weight: 900;
     position: absolute;
     top: 3px;

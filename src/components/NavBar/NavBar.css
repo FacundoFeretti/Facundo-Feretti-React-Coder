@@ -1,12 +1,14 @@
 #navbar {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 900;
-    background-color: #00171F;
-    color: #00A7E1;
+    background-color: rgb(34, 30, 34);
+    color: rgba(238, 86, 34, 1);
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    box-shadow: 5px 5px 20px 5px gray;
 }
 
 #navMenu{
@@ -14,9 +16,26 @@
     align-items: center;
     gap: 30px;
     list-style: none;
+    margin: 0;
 }
 
 .itemMenu{
-    color: #00A7E1 !important;
+    height: 5rem;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.itemMenu:hover{
+    background-color: rgb(68, 53, 91);
+}
+
+.itemMenu:hover a{
+    color: rgba(238, 86, 34, 1);
+}
+
+.itemMenu a{
+    color: rgba(238, 86, 34, 0.8);
+    text-decoration: none;
+}

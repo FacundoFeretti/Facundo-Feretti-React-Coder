@@ -2,9 +2,7 @@ import "./NavBar.css"
 import "../CartWidget/CartWidget"
 import { CartWidget } from "../CartWidget/CartWidget"
 
-export const NavBar = (props) => {
-    console.log(props)
-    
+export const NavBar = () => {    
     return (
         <nav id="navbar">
             <a id="title">FacuTech</a>
