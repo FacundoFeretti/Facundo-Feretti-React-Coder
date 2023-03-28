@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    color: rgba(238, 86, 34, 1);
 }
 
 #cartCount{

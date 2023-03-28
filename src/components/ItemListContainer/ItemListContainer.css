@@ -1,12 +1,27 @@
-#itemListContainer {
+#galeria{
+    row-gap: 18px;
+    column-gap: 0px;
+}
+
+.card{
+    box-shadow: 1px 1px 12px gray;
+}
+
+.justify-center{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 99vw;
-    height: 70vh;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2rem;
-    font-style: italic;
-    text-shadow: 8px 8px 8px rgba(238, 86, 34, 1);
+}
+
+.row{
+    --bs-gutter-x: 0rem;
+}
+
+.compra-btn{
+    background-color: rgb(68, 53, 91);
+    color: white;
+}
+
+.compra-btn:hover{
+    background-color: rgb(34, 30, 34);
+    color: white;
 }
