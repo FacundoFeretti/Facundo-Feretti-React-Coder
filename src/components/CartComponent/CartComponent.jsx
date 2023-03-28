@@ -10,19 +10,18 @@ export const CartComponent = () => {
     const [items, setItems] = useState([]);
     
     const productsJson = () => {
-        setItems(data);
+        let filtrado = data.filter(e => e.categoria === "Notebook")
+        setItems(filtrado);
     } 
     
     useEffect(() => {
         productsJson();
     }, [])
-    
-    const filteredItems = items.filter(e => e.categoria === "Notebook")
-    
+        
     return(
         <div className="flexB">
             <div className="containerCart">
-                {filteredItems.map(e =>
+                {items.map(e =>
                     <div key={e.id} className="cartItem">
                         <div className="itemPrev">
                             <img className="cartImg" src={e.img}/>
@@ -31,6 +30,7 @@ export const CartComponent = () => {
                         <p>${e.precio}</p>
                     </div>
                 )}
+                <p className="totalPrice">Total: $99999</p>
             </div>
         </div>
     )

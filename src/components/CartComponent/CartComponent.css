@@ -13,6 +13,8 @@
     flex-direction: column;
     height: auto;
     width: auto;
+    align-items: center;
+    margin-top: 100px;
 }
 
 .cartImg{
@@ -31,4 +33,11 @@
 .itemPrev{
     display: flex;
     align-items: center;
+}
+
+.totalPrice{
+    background-color: rgb(68, 53, 91);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
 }

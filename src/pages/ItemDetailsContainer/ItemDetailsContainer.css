@@ -1,0 +1,27 @@
+.containerMaster{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.detailContainer{
+    width: 80vw;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    align-items: center;
+}
+
+.detailImg{
+    height: 200px;
+    width: 200px;
+}
+
+
+
+.btnAtras{
+    background-color: rgb(68, 53, 91);
+    color: white;
+    height: 100px;
+}

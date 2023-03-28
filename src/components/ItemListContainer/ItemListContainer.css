@@ -1,8 +1,3 @@
-#galeria{
-    row-gap: 18px;
-    column-gap: 0px;
-}
-
 .card{
     box-shadow: 1px 1px 12px gray;
 }
@@ -14,6 +9,7 @@
 
 .row{
     --bs-gutter-x: 0rem;
+    row-gap: 1.8rem;
 }
 
 .compra-btn{
