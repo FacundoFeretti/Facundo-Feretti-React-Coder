@@ -20,6 +20,7 @@
 .cartImg{
     height: 150px;
     width: 150px;
+    border-radius: 50%;
 }
 
 .cartItem{
@@ -33,6 +34,7 @@
 .itemPrev{
     display: flex;
     align-items: center;
+    gap: 35px;
 }
 
 .totalPrice{

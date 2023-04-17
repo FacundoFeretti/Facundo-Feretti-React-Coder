@@ -1,5 +1,6 @@
 .card{
     box-shadow: 1px 1px 12px gray;
+    color: black;
 }
 
 .justify-center{
@@ -20,4 +21,10 @@
 .compra-btn:hover{
     background-color: rgb(34, 30, 34);
     color: white;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }

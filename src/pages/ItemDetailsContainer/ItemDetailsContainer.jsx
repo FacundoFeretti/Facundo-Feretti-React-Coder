@@ -3,6 +3,7 @@ import './ItemDetailsContainer.css'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import data from '../../data/products.json'
+import { AddToCartButton } from "../../components/buttons/AddToCartButton";
 
 export const ItemDetailsContainer = () => {
 
@@ -24,6 +25,7 @@ export const ItemDetailsContainer = () => {
                     <p>{item.id}</p>
                     <p>${item.precio}</p>
                 </div>
+                <AddToCartButton />
                 <Link to={`/`}  className='btnAtras btn'>Atras</Link>
             </div>
         </div> 

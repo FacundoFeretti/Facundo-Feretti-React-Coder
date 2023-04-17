@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import data from '../data/products.json'
+import { AddToCartButton } from "../components/buttons/AddToCartButton";
 
 
 export const ItemCategoryContainer = () => {
