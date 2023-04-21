@@ -1,27 +1,24 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { CartContext } from "../context";
+import { Loader } from "../components/Loader/Loader";
+import { PaymentSuccess } from "../components/PaymentAlert/PaymentAlert";
 
 const styles = {
-  container: {
     width: "100%",
     height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-  },
-  paymentButton: {
-    borderRadius: "12px",
-    marginTop: "10px",
-    fontSize: "1rem",
-  },
 };
 
 export const Checkout = () => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+  const [IdPago, setIdPago] = useState(null);
+  const [pagoExitoso, setPagoExitoso] = useState(false)
 
   const { itemCount } = React.useContext(CartContext);
   const navigate = useNavigate();
@@ -49,19 +46,19 @@ export const Checkout = () => {
     const productCollection = collection(db, "ventas");
     addDoc(productCollection, newProduct)
       .then(({ id }) => {
-        // setPaymentSuccess(true);
-        // setPaymentId(id);
+        setPagoExitoso(true) 
+        setIdPago(id);
       })
       .then(() => setLoading(false));
       
     setTimeout(() => {
       navigate("/");
-    }, 3000);
+    }, 5000);
   };
   return (
-    <Container style={styles.container} fluid>
+    <Container style={styles} fluid>
       <Row>
-        <Col md={{ span: 6, offset: 3 }}>
+        <Col>
           <h1 className="text-center">Ingrese su metodo de pago</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="name">
@@ -101,13 +98,14 @@ export const Checkout = () => {
             <Button
               variant="primary"
               type="submit"
-              style={styles.paymentButton}
+              className="compra-btn btn"
             >
-                Pagar
+                Pagar ${itemCount.products.reduce((acumulador, product) => acumulador + (product.precio * product.qty), 0)}
             </Button>
           </Form>
         </Col>
       </Row>
+      {pagoExitoso && <PaymentSuccess paymentId={IdPago} />}
     </Container>
   );
 };

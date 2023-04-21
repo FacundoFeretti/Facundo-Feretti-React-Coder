@@ -2,7 +2,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 900;
     background-color: rgb(34, 30, 34);
-    color: rgba(238, 86, 34, 1);
+    color: #F0F7F4;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
@@ -20,7 +20,7 @@
 }
 
 #title{
-    color: rgba(238, 86, 34, 1);
+    color:  #F0F7F4;
     text-decoration: none;
 }
 
@@ -37,10 +37,10 @@
 }
 
 .itemMenu:hover a{
-    color: rgba(238, 86, 34, 1);
+    color: #F0F7F4;
 }
 
 .itemMenu a{
-    color: rgba(238, 86, 34, 0.8);
+    color:  #F0F7F4;
     text-decoration: none;
 }

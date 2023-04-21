@@ -24,7 +24,7 @@ export const CartComponent = () => {
                     </div>
                 )}
                 <p className="totalPrice">$ {totalPrice}</p>
-                <Link to='/checkout'>Pagar</Link>
+                <Link className="btn compra-btn" to='/checkout'>Pagar</Link>
                 <DeleteCartButton/>
             </div>
         </div>

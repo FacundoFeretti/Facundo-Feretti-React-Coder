@@ -16,6 +16,7 @@
 .compra-btn{
     background-color: rgb(68, 53, 91);
     color: white;
+    border: none;
 }
 
 .compra-btn:hover{

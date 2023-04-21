@@ -5,14 +5,14 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    color: rgba(238, 86, 34, 1);
+    color:  #F0F7F4;
 }
 
 #cartCount{
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: rgb(255, 249, 236);
+    background-color: #C3423F;
     font-size: 0.8rem;
     font-style: italic;
     color: black;
