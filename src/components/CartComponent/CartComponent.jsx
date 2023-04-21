@@ -1,9 +1,8 @@
 import React, {useContext} from "react";
-import { useState, useEffect } from 'react'
+import {DeleteCartButton} from "../buttons/DeleteCartButton"
 import "./CartComponent.css"
-import data from '../../data/products.json'
 import { CartContext } from "../../context";
-
+import { Link } from "react-router-dom";
 
 export const CartComponent = () => {
     
@@ -25,6 +24,8 @@ export const CartComponent = () => {
                     </div>
                 )}
                 <p className="totalPrice">$ {totalPrice}</p>
+                <Link to='/checkout'>Pagar</Link>
+                <DeleteCartButton/>
             </div>
         </div>
     )

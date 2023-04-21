@@ -1,21 +1,32 @@
 import React from "react";
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import data from '../data/products.json'
-import { AddToCartButton } from "../components/buttons/AddToCartButton";
+import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { Loader } from "../components/Loader/Loader";
 
 
 export const ItemCategoryContainer = () => {
 
     const { categoryId } = useParams()
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        let filtrado = data.filter(e => e.categoria === categoryId)
-        setItems(filtrado);
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items")
+        getDocs(itemsCollection)
+        .then(products => {
+            setItems(
+                products.docs
+                .map((doc) => ({ id: doc.id, ...doc.data() }))
+                .filter(e => e.categoria === categoryId)
+
+            )
+        })
+        .then(() => setLoading(false))
     }, [categoryId])
 
-    return(
+    return loading? (<Loader/>) : (
         <div className="row">
             {items.map(e =>
                 <div key={e.id} className="col-lg-3 justify-center">

@@ -24,8 +24,6 @@ export const NavBar = () => {
                 <li className="itemMenu"><Link to='/category/Auriculares'>Auriculares</Link></li>
                 <li className="itemMenu"><Link to='/category/SmartTv'>Smart Tv</Link></li>
                 <li className="itemMenu"><Link to='/category/Celular'>Celular</Link></li>
-                <li className="itemMenu"><Link to='/about'>Sobre Nosotros</Link></li>
-                <li className="itemMenu"><Link to='/contact'>Contacto</Link></li>
                 <li><button onClick={handleChange}>{isDarkMode? <i class="fa-solid fa-sun"></i> : <i class="fa-solid fa-moon"></i>}</button></li>
             </ul>
         </nav>

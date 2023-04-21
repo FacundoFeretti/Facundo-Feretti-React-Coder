@@ -1,16 +1,28 @@
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../context"; 
-import data from '../../data/products.json'
+import { collection, getDocs, getFirestore } from "firebase/firestore"
 
 export const AddToCartButton = (props) => {
     
     const {itemCount, setItemCount} = useContext(CartContext)
     const { id } = useParams();
 
+    const [data, setData] = useState([]);
 
-    const addToCart = () =>{
-        
+    useEffect(() => {
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items")
+        getDocs(itemsCollection)
+        .then(products => {
+            setData(
+                products.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+            )
+        })
+    }, [])
+
+
+     const addToCart = () =>{
         const existingProduct = itemCount.products.find(e => e.id === id);
         const existingIndex = itemCount.products.findIndex(e => e.id === id);
         const newItem = data.find(e => e.id === id)

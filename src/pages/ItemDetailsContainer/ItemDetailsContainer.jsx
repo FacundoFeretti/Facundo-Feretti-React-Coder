@@ -2,20 +2,31 @@ import React from "react";
 import './ItemDetailsContainer.css'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import data from '../../data/products.json'
+import {doc, getDoc, getFirestore} from "firebase/firestore";
 import { AddToCartButton } from "../../components/buttons/AddToCartButton";
+import { Loader } from "../../components/Loader/Loader";
 
 export const ItemDetailsContainer = () => {
 
     const [item, setItem] = useState([]);
+    const [loading, setLoading] = useState(true)
     const { id } = useParams()
     
     useEffect(() => {
-        let result = data.find(e => e.id === id)
-        setItem(result)
+        const db = getFirestore();
+        const docRef = doc(db, "items", id);
+        getDoc(docRef)
+        .then(product => {
+            if(!product.exists()){
+                console.log("no existe el producto")
+            }
+            setItem({id: product.id, ...product.data()});
+        })
+        .catch(err => console.log(err))
+        .then(() => setLoading(false))
     }, []);
 
-    return(
+    return loading ? (<Loader/>) : (
         <div className="containerMaster">
             <div className="detailContainer">
                 <img className="detailImg" src={item.img} alt="" />

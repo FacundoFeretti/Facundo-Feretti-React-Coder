@@ -1,24 +1,32 @@
 import React from "react";
 import "./ItemListContainer.css"
 import { useState, useEffect } from "react";
-import data from '../../data/products.json'
 import { Link } from 'react-router-dom'
 import { collection, getDocs, getFirestore } from "firebase/firestore"
-
+import { Loader } from "../Loader/Loader";
 
 export const ItemListContainer = () =>{
 
     const [items, setItems] = useState([]);
-
-    const productsJson = () => {
-        setItems(data);
-    } 
-
+    const [loader, setLoader] = useState(true);
+    
     useEffect(() => {
-        productsJson();
+        const db = getFirestore();
+        const itemsCollection = collection(db, "items")
+        getDocs(itemsCollection)
+        .then(products => {
+            setItems(
+                products.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+            );
+            console.log(items)
+        })
+        .then(() =>{
+            setLoader(false)
+        })
     }, [])
 
-    return(
+    return loader ? (<Loader/>) : 
+    (
         <div className="row">
             {items.map(e =>
                 <div key={e.id} className="col-lg-3 justify-center">
